@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "run": {
+    "id": "b8a7f661-84ff-4057-b32a-6c777bc9a776",
+    "created_at": "2026-10-19T09:20:25.139966+00:00",
+    "prefix": "CaH6",
+    "formula": "CaH6",
+    "pressure_gpa": 200.0,
+    "spacegroup": "Im-3m",
+    "structure_hash": "8f064d576bacc1e0",
+    "physics_hash": "828e03a55b1167f4",
+    "method_hash": "50c4b36627d94646",
+    "phonon_method": "harmonic",
+    "tc_path": "a2f",
+    "ecutwfc_ry": 80.0,
+    "coarse_q": "[4, 4, 4]",
+    "coarse_k": "[4, 4, 4]",
+    "fine_k": "k[32, 32, 32] q[16, 16, 16]",
+    "fine_k_points": 134217728,
+    "muc": 0.1,
+    "scflow_version": "0.1.0",
+    "qe_version": "PWSCF 7.4.1",
+    "epw_version": "EPW 5.9",
+    "backend": "local",
+    "worst_check": "warn",
+    "config": {
+      "compound": {
+        "prefix": "CaH6",
+        "pressure_GPa": 200.0
+      },
+      "structure": {
+        "expected_spacegroup": "Im-3m",
+        "ibrav": 0,
+        "cell_parameters_angstrom": [
+          [
+            -1.699096,
+            1.699096,
+            1.699096
+          ],
+          [
+            1.699096,
+            -1.699096,
+            1.699096
+          ],
+          [
+            1.699096,
+            1.699096,
+            -1.699096
+          ]
+        ],
+        "nat": 7,
+        "ntyp": 2,
+        "species": [
+          {
+            "symbol": "Ca",
+            "mass": 40.078,
+            "pseudo": "Ca.pbe-spn-rrkjus_psl.1.0.0.UPF"
+          },
+          {
+            "symbol": "H",
+            "mass": 1.00794,
+            "pseudo": "H.pbe-rrkjus_psl.1.0.0.UPF"
+          }
+        ],
+        "positions": [
+          [
+            "Ca",
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            "H",
+            0.5,
+            0.75,
+            0.25
+          ],
+          [
+            "H",
+            0.5,
+            0.25,
+            0.75
+          ],
+          [
+            "H",
+            0.25,
+            0.5,
+            0.75
+          ],
+          [
+            "H",
+            0.75,
+            0.5,
+            0.25
+          ],
+          [
+            "H",
+            0.75,
+            0.25,
+            0.5
+          ],
+          [
+            "H",
+            0.25,
+            0.75,
+            0.5
+          ]
+        ]
+      },
+      "wannier": {
+        "nbndsub": 11,
+        "nbnd": 34,
+        "bands_skipped": "exclude_bands = 1-4",
+        "projections": [
+          "Ca:d",
+          "H:s"
+        ],
+        "dis_win_min": 0.0,
+        "dis_win_max": 45.0,
+        "dis_froz_min": 0.0,
+        "dis_froz_max": 21.2
+      },
+      "eliashberg": {
+        "muc": 0.1,
+        "temperatures_K": [
+          100,
+          150,
+          175,
+          200,
+          225,
+          250
+        ]
+      },
+      "dft": {
+        "ecutwfc": 80.0,
+        "ecutrho": 800.0,
+        "degauss": 0.02,
+        "scf_kgrid": [
+          12,
+          12,
+          12
+        ],
+        "coarse_kgrid": [
+          4,
+          4,
+          4
+        ]
+      },
+      "epw": {
+        "fine_kgrid": [
+          32,
+          32,
+          32
+        ],
+        "fine_qgrid": [
+          16,
+          16,
+          16
+        ],
+        "fsthick": 1.0,
+        "degaussw": 0.1,
+        "wscut": 3.0,
+        "use_a2f": true
+      },
+      "reference": {
+        "tc_exp_K": 215,
+        "pressure_GPa": 172,
+        "source": "Ma et al., PRL 128, 167001 (2022): 215 K at 172 GPa (no measurement at 200 GPa)"
+      },
+      "parallel": {
+        "nproc": 24
+      }
+    }
+  },
+  "results": {
+    "lambda": 1.961555614055633,
+    "omega_log_mev": 110.16733286564826,
+    "omega2_mev": 130.46170043651745,
+    "omega_max_mev": 259.2887716,
+    "tc_allen_dynes_k": 181.4329714189292,
+    "tc_allen_dynes_f1f2_k": 213.8132514313367,
+    "tc_eliashberg_iso_k": 239.1017230933378,
+    "tc_epw_k": 181.432974113955,
+    "scf_pressure_gpa": 199.969,
+    "phonon_min_cm1": 0.0,
+    "tc_reference_k": 215.0
+  },
+  "checks": [
+    {
+      "name": "eliashberg.cross_check",
+      "status": "pass",
+      "message": "recomputed \u03bb=1.962 from \u03b1\u00b2F matches EPW's integral 1.962",
+      "value": "7.165554154986443e-09"
+    },
+    {
+      "name": "eliashberg.muc",
+      "status": "pass",
+      "message": "\u03bc*=0.1",
+      "value": "0.1"
+    },
+    {
+      "name": "eliashberg.smearing_plateau",
+      "status": "pass",
+      "message": "\u03b1\u00b2F at 0.05 meV phonon smearing reproduces the mode-summed \u03bb=2.029",
+      "value": "1"
+    },
+    {
+      "name": "eliashberg.strong_coupling",
+      "status": "pass",
+      "message": "\u03bb=1.96 > 1.5: Allen-Dynes without f1\u00b7f2 underestimates Tc here; the isotropic Eliashberg value (239.1 K) is the better estimate",
+      "value": "1.961555614055633"
+    },
+    {
+      "name": "epw.completed",
+      "status": "pass",
+      "message": "EPW pass 2 finished",
+      "value": "null"
+    },
+    {
+      "name": "epw.fine_grid_phonons",
+      "status": "pass",
+      "message": "all 86016 interpolated modes real",
+      "value": "0.0"
+    },
+    {
+      "name": "epw.fsthick",
+      "status": "pass",
+      "message": "fsthick 1.0 eV vs \u03c9_max 259 meV",
+      "value": "3.8567038357630135"
+    },
+    {
+      "name": "epw.wscut",
+      "status": "pass",
+      "message": "Matsubara cutoff 3.0 eV = 11.6\u00d7\u03c9_max",
+      "value": "11.57011150728904"
+    },
+    {
+      "name": "phonons.acoustic_sum_rule",
+      "status": "pass",
+      "message": "\u0393 acoustic modes |\u03c9| \u2264 14.3 cm\u207b\u00b9 before ASR correction",
+      "value": "14.280444"
+    },
+    {
+      "name": "phonons.stability",
+      "status": "pass",
+      "message": "all 8 irreducible q-points stable",
+      "value": "0.0"
+    },
+    {
+      "name": "reference.tc",
+      "status": "warn",
+      "message": "Eliashberg Tc 239.1 K vs experiment 215 K at 172 GPa (+11%) \u2014 reference is at a different pressure than 200 GPa, so agreement is not evidence",
+      "value": "0.11210103764343161"
+    },
+    {
+      "name": "scf.converged",
+      "status": "pass",
+      "message": "SCF converged",
+      "value": "null"
+    },
+    {
+      "name": "scf.pressure",
+      "status": "pass",
+      "message": "DFT pressure 200.0 GPa at the simulated geometry; target 200.0 GPa",
+      "value": "199.969"
+    },
+    {
+      "name": "scf.symmetry",
+      "status": "pass",
+      "message": "QE uses 48 symmetry operations (spglib: 48)",
+      "value": "48"
+    },
+    {
+      "name": "structure.distance.Ca-Ca",
+      "status": "pass",
+      "message": "shortest Ca-Ca = 2.943 \u00c5 (0.84 \u00d7 covalent-radius sum 3.52 \u00c5)",
+      "value": "2.9429205989370493"
+    },
+    {
+      "name": "structure.distance.Ca-H",
+      "status": "pass",
+      "message": "shortest Ca-H = 1.900 \u00c5 (0.92 \u00d7 covalent-radius sum 2.07 \u00c5)",
+      "value": "1.8996470781489911"
+    },
+    {
+      "name": "structure.distance.H-H",
+      "status": "pass",
+      "message": "shortest H-H = 1.201 \u00c5 (1.94 \u00d7 covalent-radius sum 0.62 \u00c5)",
+      "value": "1.201442303486938"
+    },
+    {
+      "name": "structure.mass.Ca",
+      "status": "pass",
+      "message": "mass 40.078 vs standard 40.0780",
+      "value": "40.078"
+    },
+    {
+      "name": "structure.mass.H",
+      "status": "pass",
+      "message": "mass 1.00794 vs standard 1.0080",
+      "value": "1.00794"
+    },
+    {
+      "name": "structure.spacegroup",
+      "status": "pass",
+      "message": "Im-3m (48 point operations)",
+      "value": "\"Im-3m\""
+    },
+    {
+      "name": "wannier.disentanglement",
+      "status": "pass",
+      "message": "disentanglement converged",
+      "value": "null"
+    },
+    {
+      "name": "wannier.frozen_window_clearance",
+      "status": "pass",
+      "message": "dis_froz_max is 283 meV from the nearest band energy",
+      "value": "283.3000000000005"
+    },
+    {
+      "name": "wannier.spreads",
+      "status": "pass",
+      "message": "11 WFs, max spread 0.97 \u00c5\u00b2",
+      "value": "0.96801326"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "1_vcrelax/vcrelax.in",
+      "sha256": "85deddd63138ca3b53feb4239974feac867f98acf55a9f76a212e3b7d207ba32",
+      "bytes": 1254
+    },
+    {
+      "path": "2_phonons/matdyn.in",
+      "sha256": "25a9bcd2efd1033553a0090be1f656bc88372fed02129f86e484dae6dfd4a110",
+      "bytes": 170
+    },
+    {
+      "path": "2_phonons/ph.in",
+      "sha256": "1ca498744cf139e80ea00e305a79fb48be4eca8f8257677ad96c604a345e9789",
+      "bytes": 337
+    },
+    {
+      "path": "2_phonons/ph.out",
+      "sha256": "ce5d201e57222e697a14233e99224f76eb47fdcac5a0e50d727a7e04a0d11c73",
+      "bytes": 280875
+    },
+    {
+      "path": "2_phonons/q2r.in",
+      "sha256": "9dfd6571d4e170c58944d13379b627097c717545bb97dec054fee9583518b3f0",
+      "bytes": 75
+    },
+    {
+      "path": "2_phonons/scf.in",
+      "sha256": "eca10ad8d7d74bba3fcd1bdc353a8c08dd93fed525817ed8cfe8da3dbdb21d7f",
+      "bytes": 1138
+    },
+    {
+      "path": "2_phonons/scf.out",
+      "sha256": "eef8275286709c0346139d8e33731981b3cb104bf182192ffc79a78d097a3268",
+      "bytes": 43471
+    },
+    {
+      "path": "3_epw/CaH6.a2f.01.300.000",
+      "sha256": "201fe8331cab90d92c24db665446aa083ecda0d4e75486b0a3f708d65c5d1fa6",
+      "bytes": 66919
+    },
+    {
+      "path": "3_epw/CaH6.a2f_tr.01.300.000",
+      "sha256": "76302e7f43a81b942d31de0931a279d22e6f03c2edd8efb67947ec706f5e018a",
+      "bytes": 66919
+    },
+    {
+      "path": "3_epw/CaH6.wout",
+      "sha256": "caa991367ffab99c8ffd57539a23e218d3c282f97ecd19ab9eee97e7f3c9b75d",
+      "bytes": 3199684
+    },
+    {
+      "path": "3_epw/epw_pass1.in",
+      "sha256": "ea4c53bed7eed2765033a6eb1b4d29ddba0509b4894c46f6767e31a42752884a",
+      "bytes": 1002
+    },
+    {
+      "path": "3_epw/epw_pass1.out",
+      "sha256": "ac00287ffe293961e4d2204a1bc57ef1a55f0dceb6349904fadb7e7d46fcf7da",
+      "bytes": 34380
+    },
+    {
+      "path": "3_epw/epw_pass2.in",
+      "sha256": "0483a19b2c36d16a3791a05a69514bcd315f1b5914aaa0a70df111c1b383aa00",
+      "bytes": 1088
+    },
+    {
+      "path": "3_epw/epw_pass2.out",
+      "sha256": "e741f18c1dc06e5d0008745754e654fd52f3e466201d90f5cd1407c5530c80c5",
+      "bytes": 17827393
+    },
+    {
+      "path": "3_epw/nscf.in",
+      "sha256": "c5c166c0c2b0ab148fc5909c951b08b53c8580e3357de0ad74363da85cad15e5",
+      "bytes": 3368
+    },
+    {
+      "path": "3_epw/nscf.out",
+      "sha256": "96d49917c97b51abeafaa18118c280346e83fd151f182a07010ddbfe25e51f27",
+      "bytes": 89609
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "56e6fa33c682db39446d2c94945c7b4d07a5f18ba7854d0e9b31ef9ff32542e0",
+      "bytes": 3857
+    },
+    {
+      "path": "relaxed_structure.yaml",
+      "sha256": "6ecd060d90df5178ab75d92ea7d47e84bd59fbffcda6fe030270bf17b44d954e",
+      "bytes": 686
+    }
+  ],
+  "confidence": {
+    "tier": "converged",
+    "reason": "\u03bb changes 6.9% between the two densest fine grids"
+  },
+  "submission": {
+    "scflow_version": "0.1.0",
+    "submitted_at": "2026-10-21T02:44:24.675937+00:00",
+    "verified": false
+  }
+}
